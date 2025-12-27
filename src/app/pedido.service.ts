@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class PedidoService {
+export class PedidoService {  
 
   private readonly API_URL = 'http://localhost:8080/pedidos';
   
