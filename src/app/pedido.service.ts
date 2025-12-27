@@ -11,7 +11,7 @@ export class PedidoService {
   
   constructor(private http: HttpClient){}
 
-  listarPedidos(): Observable<any> {
-    return this.http.get<any>(this.API_URL)
+  listarPedidos(): Observable<any[]> {
+    return this.http.get<any[]>(this.API_URL)
   }
 } 

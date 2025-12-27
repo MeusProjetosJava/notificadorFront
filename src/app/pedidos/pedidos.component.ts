@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PedidoService } from '../pedido.service';
 
@@ -7,17 +7,16 @@ import { PedidoService } from '../pedido.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './pedidos.html',
-  styleUrls: ['./pedidos.css']
+  styleUrls: ['./pedidos.css'],
 })
-export class PedidosComponent implements OnInit {
+export class PedidosComponent {
+  pedidos = signal<any[]>([]);
 
-  pedidos: any[] = [];
-
-  constructor(private pedidoService: PedidoService) {}
-
-  ngOnInit(): void {
-    this.pedidoService.listarPedidos().subscribe(dados => {
-      this.pedidos = dados;
+  constructor(private pedidoService: PedidoService) {
+    console.log('Chamando o backend...');
+    this.pedidoService.listarPedidos().subscribe((dados) => {
+      console.log('Dados recebidos do backend:', dados);
+      this.pedidos.set(dados);
     });
   }
 }
