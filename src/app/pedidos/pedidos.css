@@ -1,9 +1,115 @@
-ul {
-  list-style: none;
-  padding: 0;
+/* Layout geral */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 16px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-li {
-  padding: 8px;
-  border-bottom: 1px solid #ccc;
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Estados */
+.loading {
+  text-align: center;
+  font-weight: bold;
+}
+
+.erro {
+  color: #c0392b;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sucesso {
+  color: #27ae60;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Card */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  padding: 16px;
+  border-left: 6px solid #3498db;
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.pedido-id {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Status badge */
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Cores por status */
+.status.CRIADO {
+  background-color: #7f8c8d;
+}
+
+.status.EM_PREPARO {
+  background-color: #f39c12;
+}
+
+.status.EM_TRANSPORTE {
+  background-color: #2980b9;
+}
+
+.status.SAIU_PARA_ENTREGA {
+  background-color: #8e44ad;
+}
+
+.status.ENTREGUE {
+  background-color: #27ae60;
+}
+
+/* Corpo */
+.card-body p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Rodapé */
+.card-footer {
+  margin-top: 14px;
+}
+
+/* Botão */
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
 }

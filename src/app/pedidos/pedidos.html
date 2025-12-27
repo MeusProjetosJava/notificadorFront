@@ -1,7 +1,30 @@
-<h2>Lista de Pedidos</h2>
+<div class="container">
+  <h2>📦 Lista de Pedidos</h2>
 
-<ul>
-  <li *ngFor="let pedido of pedidos()">
-    Pedido #{{ pedido.id }} - {{ pedido.nomeProduto }} - {{ pedido.status }}
-  </li>
-</ul>
+  <p *ngIf="carregando()" class="loading">⏳ Carregando pedidos...</p>
+  <p *ngIf="erro()" class="erro">{{ erro() }}</p>
+  <p *ngIf="sucesso()" class="sucesso">{{ sucesso() }}</p>
+
+  <div class="card" *ngFor="let pedido of pedidos()">
+    <div class="card-header">
+      <span class="pedido-id">Pedido #{{ pedido.id }}</span>
+      <span class="status" [ngClass]="pedido.status">
+        {{ pedido.status }}
+      </span>
+    </div>
+
+    <div class="card-body">
+      <p><strong>Produto:</strong> {{ pedido.nomeProduto }}</p>
+    </div>
+
+    <div class="card-footer">
+      <button
+        *ngIf="proximoStatus(pedido.status)"
+        (click)="atualizarStatusPedido(pedido.id, proximoStatus(pedido.status)!)"
+        [disabled]="carregando()"
+      >
+        ➡ Avançar para {{ proximoStatus(pedido.status) }}
+      </button>
+    </div>
+  </div>
+</div>
