@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 })
 export class PedidoService {
 
-  private readonly API_URL = `${environment.apiUrl}/pedidos`;
+  private readonly API_URL = 'https://notificador-backend-production.up.railway.app';
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +18,7 @@ export class PedidoService {
 
   atualizarStatus(id: number, status: string): Observable<any> {
     return this.http.patch(`${this.API_URL}/${id}/status`, {
-      status: status,
+      status,
     });
   }
 }
