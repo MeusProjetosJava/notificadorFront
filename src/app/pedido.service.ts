@@ -7,8 +7,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root',
 })
 export class PedidoService {
-
-  private readonly API_URL = 'https://notificador-backend-production.up.railway.app';
+  private readonly API_URL = `${environment.apiUrl}/pedidos`;
 
   constructor(private http: HttpClient) {}
 
