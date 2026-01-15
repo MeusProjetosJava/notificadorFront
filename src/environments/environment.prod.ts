@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://notificador-backend-production.up.railway.app'
+  apiUrl: 'http://notificador-backend-production.up.railway.app',
 };
